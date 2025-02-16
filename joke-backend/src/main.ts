@@ -10,6 +10,7 @@ async function bootstrap() {
       `mongodb+srv://artemvdiachenko:${MONGODB_PASSWORD}@joke-workshop.q5ubh.mongodb.net/?retryWrites=true&w=majority&appName=joke-workshop`,
     )
     .then(() => console.log('Connected to DB'));
+  app.enableCors();
   await app.listen(process.env.PORT ?? 4000);
 }
 bootstrap();
