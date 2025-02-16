@@ -5,7 +5,7 @@ function Votes({ votes, onVote }) {
     <div style={{ marginTop: '15px', display: 'flex', gap: '10px' }}>
       {votes && votes.map((vote) => (
         <div
-          key={vote.value}
+          key={vote.label}
           style={{
             cursor: 'pointer',
             fontSize: '1.5em',
@@ -13,9 +13,9 @@ function Votes({ votes, onVote }) {
             padding: '5px',
             borderRadius: '5px',
           }}
-          onClick={() => onVote(vote.value)}
+          onClick={() => onVote(vote.label)}
         >
-          {vote.value} ({vote.count})
+          {vote.label} ({vote.count})
         </div>
       ))}
     </div>

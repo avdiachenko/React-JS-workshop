@@ -22,7 +22,12 @@ export class JokeService {
           api_id: teeheeJoke.id,
           question: teeheeJoke.question,
           answer: teeheeJoke.answer,
-          votes: [],
+          votes: [
+            { label: '😆', count: 0 },
+            { label: '😅', count: 0 },
+            { label: '😇', count: 0 },
+            { label: '🤪', count: 0 },
+          ],
           availableVotes: ['😆', '😅', '😇', '🤪'],
         };
         return await this.databaseService.insertJoke(joke);
