@@ -1,6 +1,14 @@
-import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Patch,
+  ValidationPipe,
+} from '@nestjs/common';
 import { JokeService } from './joke.service';
 import { Joke } from './entities/Joke';
+import { VoteDto } from './dto/VoteDto';
 
 @Controller('api/joke')
 export class JokeController {
@@ -12,11 +20,10 @@ export class JokeController {
   }
 
   @Patch(':id')
-  vote(@Param('id') id: string, @Body() body: any): Promise<Joke | null> {
-    if (body.emoji) {
-      return this.jokeService.vote(id, body.emoji as string);
-    } else {
-      return new Promise(() => null);
-    }
+  vote(
+    @Param('id') id: string,
+    @Body(ValidationPipe) body: VoteDto,
+  ): Promise<Joke | null> {
+    return this.jokeService.vote(id, body.emoji);
   }
 }
