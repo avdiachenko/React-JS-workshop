@@ -4,6 +4,7 @@ class Vote {
 }
 
 export class Joke {
+  api_id: string;
   question: string;
   answer: string;
   votes: Vote[];
