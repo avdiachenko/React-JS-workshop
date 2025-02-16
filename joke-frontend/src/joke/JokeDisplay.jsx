@@ -65,7 +65,7 @@ function JokeDisplay() {
       <p style={{ fontSize: '1.2em', fontWeight: 'bold', color: '#555' }}>Question: {joke.question}</p>
       <p style={{ fontSize: '1.1em', color: '#777' }}>Answer: {joke.answer}</p>
       <Votes votes={joke.votes} onVote={handleVote} />
-      <button onClick={handleNextJoke} style={{ backgroundColor: '#4CAF50', color: 'white', padding: '10px 15px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+      <button onClick={handleNextJoke} style={{ fontSize: '1.1em', backgroundColor: '#4CAF50', color: 'white', padding: '10px 15px', margin: '10px 0px', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
         Next Joke
       </button>
     </div>
