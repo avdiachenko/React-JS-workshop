@@ -47,4 +47,8 @@ export class JokeService {
       );
     }
   }
+
+  async vote(id: string, emoji: string) {
+    return await this.databaseService.voteJoke(id, emoji);
+  }
 }

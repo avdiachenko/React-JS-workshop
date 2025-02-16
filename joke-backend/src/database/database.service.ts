@@ -34,4 +34,19 @@ export class DatabaseService {
     const result = <Joke>(<unknown>await JokeModel.insertOne(joke));
     return result;
   }
+
+  async voteJoke(id: string, emoji: string): Promise<Joke | null> {
+    const joke = <Joke>(<unknown>await JokeModel.findOne({ _id: id }));
+    if (joke) {
+      for (const vote of joke.votes) {
+        if (vote.label == emoji) {
+          vote.count++;
+        }
+      }
+      await JokeModel.updateOne({ _id: id }, { votes: joke.votes });
+      return joke;
+    } else {
+      return null;
+    }
+  }
 }
